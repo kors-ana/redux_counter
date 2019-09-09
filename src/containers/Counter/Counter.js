@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 import CounterControl from '../../components/CounterControl/CounterControl';
 import CounterOutput from '../../components/CounterOutput/CounterOutput';
-import * as actionCreators from '../../store/actions/actions'
+import * as actionCreators from '../../store/actions/index'
 
 
 
@@ -15,7 +15,7 @@ function Counter(props) {
             <CounterControl label="Increment" clicked={props.onIncrementCounter} />
             <CounterControl label="Decrement" clicked={props.onDecrementCounter}  />
             <CounterControl label="Add 10" clicked={props.onAddCounter}  />
-            <CounterControl label="Subtract 15" clicked={props.onIncrementCounter}  />
+            <CounterControl label="Subtract 15" clicked={props.onSubtractCounter}  />
             <button onClick={() => props.onStoreResult(props.ctr)}>Store results</button>
             <ul>
                 {props.storeResult.map(result => (
@@ -38,7 +38,7 @@ const mapDispatchToProps = dispatch => {
         onIncrementCounter: () => dispatch(actionCreators.increment()),
         onDecrementCounter: () => dispatch(actionCreators.decrement()),
         onAddCounter: () => dispatch(actionCreators.add(10)),
-        onIncrementCounter: () => dispatch(actionCreators.subtract(15)),
+        onSubtractCounter: () => dispatch(actionCreators.subtract(15)),
         onStoreResult: (result) => dispatch(actionCreators.storeResults(result)),
         onDeleteResult: id => dispatch(actionCreators.deleteResults(id))
     } 
